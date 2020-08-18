@@ -32,6 +32,20 @@ header h1 {
     margin: auto;
     font-size: 1.7em;
 }
+.start {
+    position: relative;
+    left: 700px;
+    bottom: 370px;
+    width: 100px;
+    height: 100px;
+    border-radius: 15px;
+    background-color: green;
+    font-weight: bolder;
+    font-size: 1.2em;
+}
+.start:focus {
+    outline: none;
+}
 .container {
 /*    top: 200px;*/
 /*
