@@ -4,6 +4,7 @@ const mole = document.querySelectorAll('.mole');
 const timeLeft = document.querySelector('#time-left');
 let score = document.querySelector('#score');
 const startBtn = document.querySelector('#start');
+let gameOver = true;
 
 let result = 0;
 let currentTime = timeLeft.textContent;
@@ -32,16 +33,24 @@ function countDown() {
         clearInterval(timerId1);
         clearInterval(timerId2);
         alert('GAME OVER! Your final score is ' + result);
+        gameOver = true;
         currentTime = 60;
     }
 }
 
 function playPause() {
+    //alert("clicked the start button");
     //moveMole();
-    result = 0;
-    currentTime = 60;
-    timerId1 = setInterval(randomSquare, 1000);
-    timerId2 = setInterval(countDown, 1000);
+    //window.reload();
+    if(gameOver) {
+        //location.reload();
+        result = 0;
+        score.textContent = result;
+        currentTime = 60;
+        timerId1 = setInterval(randomSquare, 1000);
+        timerId2 = setInterval(countDown, 1000);
+        gameOver = false;
+    }
 }
 
 square.forEach(item => {
@@ -53,7 +62,7 @@ square.forEach(item => {
     })
 })
 
-startBtn.addEventListener('click', playPause); // { , once: true });
+startBtn.addEventListener('click', playPause); //, { once: true });
 
 
 
